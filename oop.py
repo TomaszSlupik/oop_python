@@ -1,4 +1,5 @@
 # 1. Klasa i instacja klasy 
+# v1
 class Food:
     pass
 
@@ -10,7 +11,20 @@ print(yourFood)
 
 print('---')
 
+# v2 
+class Drink():
+    pass
 
+tomDrink = Drink()
+
+if isinstance(tomDrink, object):
+    print('Obiket jest instancją klasy')
+else:
+    print('Instancja nie jest')
+
+
+
+print('---')
 # 2. Metoda, a Funkcja 
 class Audi:
     def drive(self):
@@ -68,7 +82,20 @@ myDrink = Drink()
 print(myDrink)
 
 print('---')
-# 6. Pola statyczne - properties
+
+# 6. Magiczna metoda __init__
+class Cook():
+    def __init__(self, cook) -> None:
+        self.cook = cook
+        print(self.cook)
+
+
+cook = Cook('Pierogi ruskie')
+
+print(cook)
+print('---')
+
+# 7. Pola statyczne - properties
 
 # Pola statyczne zawsze to samo da dla różnych instancji klas. Potwierdzenie to wynik tego samego ID
 class Swim ():
@@ -95,5 +122,36 @@ phone2 = Phone('Iphone')
 
 print(id(phone1))
 print(id(phone2))
+print('---')
 
-# Metoda z właściowściami: 
+# 8. Metoda z właściowściami: 
+class Sleep():
+    def __init__(self, time) -> None:
+        self.time = time
+    def sleeping(self):
+        return f"Dzisiaj śpimy {self.time}"
+    
+mySleep = Sleep(10)
+
+print(mySleep.sleeping())
+print('---')
+
+# 9. Dziedziczenie - łączenie obiektów w Pythonie - czyli JEST 
+class Food:
+    def __init__(self, weight) -> None:
+        self.weight = weight
+
+    def eat(self):
+        return f"Jemy"
+
+class Fruit(Food):
+    def __init__(self, kind, weight) -> None:
+        self.kind = kind
+        super().__init__ (weight)
+    
+
+myFood = Fruit('Pomarańcz', 20)
+
+print(myFood.kind)
+print(myFood.eat())
+print(myFood.weight)
