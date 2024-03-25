@@ -1,4 +1,12 @@
 # 1. Klasa i instacja klasy 
+# z przepisu powstaje spaghetti 
+# W OOP z klas powstaje obiekty czyli juz istniejący 
+class MyClass:
+    pass
+
+class Human:
+    pass
+# KLASA jest szablonem, przepisem. Metoda __init__ tez jest szablonem 
 # v1
 class Food:
     pass
@@ -22,10 +30,26 @@ if isinstance(tomDrink, object):
 else:
     print('Instancja nie jest')
 
+# OBIEKT zwany instacją klasy (czyli takie danie ugotowowane z przepisu)
+humanFirst  = Human()
 
+# Klasa, atrybut i instancja klasy czyli obiekt 
+class Human():
+    # Atrybut klasy
+    kind = 'homo sapiens'
+
+humanOne = Human()
+humanTwo = Human()
+
+print(humanOne.kind, humanTwo.kind)
+print(id(humanOne))
+print(id(humanTwo))
+
+print("---")
 
 print('---')
-# 2. Metoda, a Funkcja 
+
+# 2. METODA, a FUNKCJA
 class Audi:
     def drive(self):
         return("jedziemy")
@@ -44,6 +68,7 @@ print(myCar.fuel())
 print('---')
 
 # 3. Self - można z różnych metod odpalać inne metody 
+# Self - odwołujej się do konkretnej instancji klasy 
 class Coffee:
     def drink(self):
         return "Pijemy"
@@ -72,7 +97,12 @@ myCalc = Calc()
 print(myCalc.num(2))
 
 print('---')
+
 # 5. Magiczne metody: 
+# Magiczna metoda __name__ nazywa główny plik
+print(__name__)
+print("---")
+
 # __str__ - od razu zwróci nam Stringa 
 class Drink():
     def __str__(self):
@@ -84,6 +114,15 @@ print(myDrink)
 print('---')
 
 # 6. Magiczna metoda __init__
+# Metoda __init__ czyli Konstruktor - Funkcja Inicjalizująca - do przechowywania atrybutów 
+
+class Human():
+    def __init__(self, kind) -> None:
+        self.kind = kind
+
+humamThree = Human('Homo sapiens')
+print(humamThree.kind)
+
 class Cook():
     def __init__(self, cook) -> None:
         self.cook = cook
@@ -155,3 +194,4 @@ myFood = Fruit('Pomarańcz', 20)
 print(myFood.kind)
 print(myFood.eat())
 print(myFood.weight)
+
