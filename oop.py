@@ -196,6 +196,23 @@ print(myFood.eat())
 print(myFood.weight)
 
 # 10. Kompozycja - łączenie obiektów za pomocą MA/ POSIADA
+# Kompozycja - MA 
+class Auto():
+    def __init__(self, silnik) -> None:
+        self.silnik = silnik
+
+
+class Silnik():
+    def __init__(self, pojemnosc) -> None:
+        self.pojemnosc = pojemnosc
+
+silnik = Silnik(5000)
+samochod = Auto(silnik)
+
+print(samochod.silnik.pojemnosc)
+
+
+print('---')
 # Ryba ma białko
 class Fish:
     def __init__(self, weight):
