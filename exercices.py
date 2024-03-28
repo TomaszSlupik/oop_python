@@ -52,4 +52,19 @@ print(dir(mydrink))
 
 print('---')
 
-# 
+class Car ():
+    # atrybut klasowy 
+    # kind = 'skoda'
+
+    def __init__(self, kind) -> None:
+        self.kind = kind
+
+    def driving (self):
+        return 'Jedziemy'
+    
+# instncja klasy
+carOne = Car('skoda')
+carTwo =Car('skoda')
+
+print(id(carOne))
+print(id(carTwo))
