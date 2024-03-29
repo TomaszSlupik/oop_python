@@ -68,3 +68,20 @@ carTwo =Car('skoda')
 
 print(id(carOne))
 print(id(carTwo))
+
+# II przykład 
+
+class Runner():
+    def __init__(self, suit) -> None:
+        self.suit = suit
+
+class Shoes():
+    def __init__(self, kind) -> None:
+        self.kind = kind
+
+shoes = Shoes('Nike')
+runner = Runner(shoes)
+
+print(runner.suit.kind)
+
+
