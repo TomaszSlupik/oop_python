@@ -84,4 +84,20 @@ runner = Runner(shoes)
 
 print(runner.suit.kind)
 
+# dekoratory 
+def upperCase (func):
+    def wrapper (*args, **kwargs):
+        return func (*args, **kwargs).upper()
+    return wrapper
+
+@upperCase
+def hello (name):
+    return f"Cześć, {name}"
+
+@upperCase
+def today():
+    return 'Dziś jest super pogoda'
+
+print(today())
+print(hello('Tomek'))
 
