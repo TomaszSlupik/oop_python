@@ -322,3 +322,32 @@ class Weather():
 Weather.my_class_method()
 
 print('---')
+
+# Abstrakcja - nie mozemy utowrzyć instancji klasy dla metod abstrakcyjnych 
+# Klasa Post jest abstrakcyjna, ponieważ posiada metodę display() zdefiniowaną jako abstrakcyjną metodę. 
+# Nie można utworzyć instancji klasy Post, ponieważ jest to klasa abstrakcyjna
+
+from abc import ABC, abstractclassmethod
+
+class Post(ABC):
+    def __init__(self, title) -> None:
+        self.title = title
+
+    @abstractclassmethod
+    def display(self):
+        pass
+
+class Blog(Post):
+    def display(self):
+        return f'Tytuł bloga: {self.title}'
+
+class WebApp(Post):
+    def dispay(self):
+        return f"Tytuł WebApp: {self.title}"
+
+myBlog = Blog('Gotowanie')
+myApp = Blog('Apka do gotowania')
+
+
+print(myBlog.display())
+print(myApp.display())
