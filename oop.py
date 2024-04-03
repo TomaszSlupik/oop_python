@@ -351,3 +351,52 @@ myApp = Blog('Apka do gotowania')
 
 print(myBlog.display())
 print(myApp.display())
+
+# zad
+# Napisz klasę pracownik, która będze posiadac atrybuty: 
+# imię, nazwisko, pensję 
+# Napisz klasę Informatyk, która bedzie w stanie progrmaowac
+# oraz klase rolnik ktora bedzie potrafiła uprawiac ziemie 
+# Napisz klasę HR, która będzie obsługiwać zatrudnienie i zwalnianie Pracowników
+# ma posiadać w sobię listę pracowników oraz metody: zatrudnij i zwolnoij 
+# Przetestuj działanie tworząc odpowidnie obiekty 
+
+class Pracownik:
+    def __init__(self, imie, nazwisko, pensja) -> None:
+        self.imie = imie 
+        self.nazwisko = nazwisko
+        self.pensja = pensja
+
+    def __str__(self):
+        return f"Imię: {self.imie}, Nazwisko: {self.nazwisko}, Pensja: {self.pensja}"
+
+class Informatyk(Pracownik):
+    def robie(self):
+        return f"Programuję"
+
+class Rolnik(Pracownik):
+    def robie(self):
+        return f"Uprawiam ziemię"
+    
+class Hr:
+    def __init__(self) -> None:
+        self.lista_pracownikow = []
+
+    def dodaj_pracownika(self, pracownik):
+        if isinstance(pracownik, Pracownik):
+            self.lista_pracownikow.append(pracownik)
+        else:
+            print("Błąd: Nie można dodać pracownika. Obiekt nie jest instancją klasy Pracownik.")
+
+    def __str__(self) -> str:
+        pracownicy_info = "\n".join(str(pracownik) for pracownik in self.lista_pracownikow)
+        return f"Lista pracowników HR:\n{pracownicy_info}"
+
+informatyk = Informatyk('Jan', 'Kowalski', 15000)
+rolnik = Rolnik('Leszek', 'Kowalski', 8000)
+
+hr = Hr()
+hr.dodaj_pracownika(informatyk)
+hr.dodaj_pracownika(rolnik)
+
+print(hr)
